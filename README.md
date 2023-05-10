@@ -12,12 +12,12 @@ Program structure is given as follow:
     ├─data: will not uploaded
     ├─paper: some research & empirical papers
     ├─faiss: a package developed by Facebook AI Research
-		│  └─tutorial: some code examples
+    │  └─tutorial: some code examples
     ├─string_grouper: a super fast string matching package in Python
     │  └─tutorial: some code examples
-		├─splink: help link dataset without unique identifier
-		│  └─tutorial: some code examples
-		...
+    ├─splink: help link dataset without unique identifier
+    │  └─tutorial: some code examples
+    ...
 ```
 
 ## Results
