@@ -47,3 +47,7 @@ Compared with FAISS
 
 - Also an $O(N^2)$ techique.
 - More details see [README-explore string_grouper](https://github.com/ZhimingMei/Big-Data-Matching/tree/main/string_grouper#readme)
+
+## Post and News
+
+- Announcing ScaNN: Efficient Vector Similarity Search [[Blog](https://ai.googleblog.com/2020/07/announcing-scann-efficient-vector.html)]

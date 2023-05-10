@@ -6,6 +6,7 @@
 - [FAISS-wiki page](http://github.com/facebookresearch/faiss/wiki)
 - [DeepNote-Semantic Search](https://deepnote.com/blog/semantic-search-using-faiss-and-mpnet)
 - [Pinecone-Tutorial on FAISS](https://www.pinecone.io/learn/faiss/)
+- [Exloring notes and comparison --CN version](https://zhuanlan.zhihu.com/p/357414033)
 
 ## Our data and target
 We have the name datasets, and we want to find out the best fuzzy matching pairs between the two name datasets.
