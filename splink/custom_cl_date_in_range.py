@@ -43,14 +43,3 @@ class DateInRangeLevelBase(ComparisonLevel):
             level_dict["m_probability"] = m_probability
 
         super().__init__(level_dict)
-
-
-comparison_date = {
-    "output_column_name": "date_in_range",
-    "comparison_levels": [
-        cl.null_level("patent_date"),
-        DateInRangeLevelBase("patent_date", "startdate", "enddate"),
-        cl.else_level()
-    ],
-    "comparison_description": "date in range comparison",
-}
