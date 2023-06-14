@@ -26,3 +26,40 @@ comparison_date = {
     "comparison_description": "date in range comparison",
 }
 ```
+
+
+
+### Efficiency Test
+
+#### Test 1: Input scale
+
+Since we have very large scale input data, we need to figure out the most efficient dividing scales.
+
+The original data scale is: 
+
+- Left dataframe: 1,000,000*15
+- Right dataframe: 20,000,000*15
+
+
+First trial: we match left dataframe with a sample of 5,000,000 in right dataframe. And the total running time is about 30min. We repeat the process for four times.
+
+Second trial: we match left dataframe with right dataframe. The total running time is about 170min.
+
+
+
+**Summary**: Dividing the dataset, and running with for loop is somehow efficient than just directly matching with whole datasets.
+
+
+
+#### Test 2: Blocking rules
+
+We set different blocking rules to check the model efficiency.
+
+Our data has several columns: name1, name2, name3. And the idea of blocking rule should be, there should be at least one name from the left, matched with one name from the right.
+
+- First blocking rule: l.name1=r.name1 or l.name1=r.name2, or l.name1=r.name3 (and repeat for l.name2 and l.name3)
+- Second blocking rule: we just reshape the data based on name, and there's only one name column (the length should be multiplied by 3). We set the blocking rule as: l.name=r.name, directly.
+
+
+
+**Summary**: the second blocking rule is much faster than the first one, in the prediction process. And the data processing time is quite close, (6min and 7min correspondingly).
