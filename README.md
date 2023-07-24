@@ -17,6 +17,8 @@ Program structure is given as follow:
     │  └─tutorial: some code examples
     ├─splink: help link dataset without unique identifier
     │  └─tutorial: some code examples
+    ├─further_check: identify the true matching pairs from fuzzy matching results
+    │  └─tutorial: some code examples
     ...
 ```
 
