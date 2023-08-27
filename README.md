@@ -15,16 +15,27 @@ Program structure is given as follow:
     │  └─tutorial: some code examples
     ├─string_grouper: a super fast string matching package in Python
     │  └─tutorial: some code examples
-    ├─splink: help link dataset without unique identifier
+    ├─splink: help link dataset without unique identifier (probablistic model)
     │  └─tutorial: some code examples
     ├─further_check: identify the true matching pairs from fuzzy matching results
     │  └─tutorial: some code examples
     ...
 ```
 
+## Workflow
+
+1. We first implement the **fuzzy matching** (to get potential matching pairs)
+   - In this step, for the fuzzy matching with multiple comparison levels (requirements), we prefer Splink [README-splink](https://github.com/ZhimingMei/Big-Data-Matching/blob/main/splink/README.md).
+   - For the fuzzy matching with only one comparison level, i.e., we need to find best potential results for one pair (company pair, fullname pair, etc.), we prefer String_grouper [README-string grouper](https://github.com/ZhimingMei/Big-Data-Matching/tree/main/string_grouper#readme)
+2. Then, we calculate some relative scores, to further check whether the potential pairs are true or not.
+   - We calculate some **scores** (including the Levenshtein distance, ngram distance, phonetic distance, etc) first. We also figure out an algorithm that can help improve the predicting quality in RF model, which scores based on the name features (first name/middle name/last name, name initial, name composition, name "etymology")
+   - We construct a **random forest** model to predict the matching likelihood.
+
 ## Results
 
-### FAISS
+### Testing the matching algorithms
+
+#### FAISS
 
 | Input dataset scale\time | SentenceTransformer<br />searching time | Another vectorization (TFIDF)<br />vectorization+training+searching | GPU version |
 | ------------------------ | --------------------------------------- | ------------------------------------------------------------ | ----------- |
@@ -36,7 +47,7 @@ Program structure is given as follow:
 - It's more like an $O(N^2)$ method.
 - More details see [README-explore faiss](https://github.com/ZhimingMei/Big-Data-Matching/tree/main/faiss#readme)
 
-### String Grouper
+#### String Grouper
 
 Compared with FAISS
 
