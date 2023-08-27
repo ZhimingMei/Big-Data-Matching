@@ -28,8 +28,9 @@ Program structure is given as follow:
    - In this step, for the fuzzy matching with multiple comparison levels (requirements), we prefer Splink [README-splink](https://github.com/ZhimingMei/Big-Data-Matching/blob/main/splink/README.md).
    - For the fuzzy matching with only one comparison level, i.e., we need to find best potential results for one pair (company pair, fullname pair, etc.), we prefer String_grouper [README-string grouper](https://github.com/ZhimingMei/Big-Data-Matching/tree/main/string_grouper#readme)
 2. Then, we calculate some relative scores, to further check whether the potential pairs are true or not.
-   - We calculate some **scores** (including the Levenshtein distance, ngram distance, phonetic distance, etc) first. We also figure out an algorithm that can help improve the predicting quality in RF model, which scores based on the name features (first name/middle name/last name, name initial, name composition, name "etymology")
+   - We calculate some **scores** (including the Levenshtein distance, ngram distance, phonetic distance, etc. See [Scores-code example](https://github.com/ZhimingMei/Big-Data-Matching/blob/main/further_check/calculate_scores.py) here) first. We also figure out an algorithm that can help improve the predicting quality in RF model, which scores based on the name features (first name/middle name/last name, name initial, name composition, name "etymology". See [Custom_scores-code example](here))
    - We construct a **random forest** model to predict the matching likelihood.
+   - BTW, here's a interesting tool to help identify whether the potential matching pairs are true or not, that is Claude [Claude-code example](https://github.com/ZhimingMei/Big-Data-Matching/blob/main/further_check/explore_claude.py). (to assist the **manual checking/labeling** process) 
 
 ## Results
 
