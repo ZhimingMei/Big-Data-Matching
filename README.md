@@ -5,7 +5,7 @@ Now we have a very large dataset, and we want to figure out our target informati
 
 And we have a lot of existing amazing packages to support this work. In this repository, I will test the time complexity (matching efficiency), and the matching accuracy of some chosen packages.
 
-## Program Structure
+## Project Structure
 
 ```markdown
 Program structure is given as follow:
