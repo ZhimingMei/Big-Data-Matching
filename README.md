@@ -62,6 +62,21 @@ Compared with FAISS
 - Also an $O(N^2)$ techique.
 - More details see [README-explore string_grouper](https://github.com/ZhimingMei/Big-Data-Matching/tree/main/string_grouper#readme)
 
+
+
+## Coding Tips
+
+1. I am using the Polars dataframe to speed up the I/O process. And if the Polars dataframe contains several data types (check data.dtypes), when transfering to Pandas dataframe, it will occur some errors.
+
+   The way I solve the problem is [simply change the columns with list data type to string data type]:
+
+   ```python
+   for col in ['company_raw', 'location', 'naics_code', 'country', 'state', 'msa', 'company_ticker']:
+       data = data.with_columns(
+          pl.format("[{}]",
+             pl.col(col).cast(pl.List(pl.Utf8)).list.join(", ")).alias(col))
+   ```
+
 ## Post and News
 
 - Announcing ScaNN: Efficient Vector Similarity Search [[Blog](https://ai.googleblog.com/2020/07/announcing-scann-efficient-vector.html)]
